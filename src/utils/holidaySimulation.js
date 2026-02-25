@@ -10,8 +10,8 @@
  * - If the user has an alarm scheduled for that day, the notification modal is shown.
  */
 
-const EXAMPLE_DAY_BEFORE = '2026-01-21'; // Day before holiday (Tuesday 7 PM)
-const EXAMPLE_HOLIDAY_DATE = '2026-01-22'; // Example holiday (Wednesday — matches default alarm)
+const EXAMPLE_DAY_BEFORE = '2026-01-20'; // Day before holiday (Tuesday 7 PM)
+const EXAMPLE_HOLIDAY_DATE = '2026-01-21'; // Example holiday (Wednesday — matches default alarm days [1, 3])
 const EXAMPLE_NOTIFICATION_HOUR = 19; // 7:00 PM
 
 /**
