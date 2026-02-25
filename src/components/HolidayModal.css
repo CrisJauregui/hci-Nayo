@@ -1,0 +1,76 @@
+.holiday-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  padding: 20px;
+}
+
+.holiday-modal {
+  background: #1e1e1e;
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  max-width: 320px;
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.holiday-modal-icon {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 0.75rem;
+}
+
+.holiday-modal-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #f0f0f0;
+  margin: 0 0 0.5rem;
+  text-align: center;
+}
+
+.holiday-modal-text {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin: 0 0 1.25rem;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.holiday-modal-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.holiday-modal-btn {
+  padding: 0.85rem 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: opacity 0.2s, background 0.2s;
+}
+
+.holiday-modal-btn-disable {
+  background: var(--accent);
+  color: #fff;
+}
+
+.holiday-modal-btn-disable:hover {
+  opacity: 0.9;
+}
+
+.holiday-modal-btn-keep {
+  background: rgba(255, 255, 255, 0.1);
+  color: #f0f0f0;
+}
+
+.holiday-modal-btn-keep:hover {
+  background: rgba(255, 255, 255, 0.15);
+}

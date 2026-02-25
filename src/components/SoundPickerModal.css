@@ -1,0 +1,61 @@
+.sound-picker-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 100;
+  padding: 0 max(16px, var(--safe-left));
+}
+
+.sound-picker-modal {
+  width: 100%;
+  max-width: 400px;
+  background: var(--bg-secondary, #1a1a1a);
+  border-radius: var(--radius, 12px) var(--radius, 12px) 0 0;
+  padding: 1.5rem 1rem;
+  padding-bottom: max(1.5rem, var(--safe-bottom));
+}
+
+.sound-picker-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 1rem;
+}
+
+.sound-picker-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sound-picker-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1rem;
+  border-radius: var(--radius-sm, 8px);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.sound-picker-item:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.sound-picker-item.selected {
+  background: rgba(26, 54, 93, 0.25);
+}
+
+.sound-picker-check {
+  width: 1.25rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.sound-picker-label {
+  font-size: 1rem;
+  color: var(--text-primary);
+}

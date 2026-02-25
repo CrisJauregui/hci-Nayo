@@ -1,0 +1,43 @@
+/* Modo noche: interfaz oscura, acento azul navy */
+:root {
+  font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #f0f0f0;
+  background-color: #0f0f0f;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Design tokens - dark theme, acento navy */
+  --page-bg: #121212;
+  --card-bg: #1e1e1e;
+  --card-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+  --card-shadow-hover: 0 4px 20px rgba(0, 0, 0, 0.4);
+  --text-primary: #f0f0f0;
+  --text-secondary: #b0b0b0;
+  --text-muted: #888888;
+  --border: rgba(255, 255, 255, 0.08);
+  --accent: #1a365d;
+  --accent-hover: #2c5282;
+  --radius: 14px;
+  --radius-sm: 10px;
+  /* Mobile: safe areas */
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+}
+
+html {
+  background: #121212;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: #121212;
+}
