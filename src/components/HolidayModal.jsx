@@ -11,9 +11,21 @@ export default function HolidayModal({ alarm, tomorrowDateStr, onDisable, onKeep
     return d.toISOString().slice(0, 10);
   })();
 
+  const handleDisable = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    onDisable(alarm.id, dateStr);
+  };
+
+  const handleKeep = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    onKeep();
+  };
+
   return (
     <div className="holiday-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="holiday-modal-title">
-      <div className="holiday-modal">
+      <div className="holiday-modal" onClick={(e) => e.stopPropagation()}>
         <div className="holiday-modal-icon" aria-hidden>📅</div>
         <h2 id="holiday-modal-title" className="holiday-modal-title">
           Tomorrow is a holiday
@@ -25,14 +37,14 @@ export default function HolidayModal({ alarm, tomorrowDateStr, onDisable, onKeep
           <button
             type="button"
             className="holiday-modal-btn holiday-modal-btn-disable"
-            onClick={() => onDisable(alarm.id, dateStr)}
+            onClick={handleDisable}
           >
             Deactivate alarm for that day
           </button>
           <button
             type="button"
             className="holiday-modal-btn holiday-modal-btn-keep"
-            onClick={onKeep}
+            onClick={handleKeep}
           >
             Keep alarm
           </button>

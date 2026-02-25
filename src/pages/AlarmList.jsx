@@ -41,11 +41,18 @@ export default function AlarmList() {
     if (now.getHours() < 19) return;
     if (!shouldShowHolidayNotification(searchParams, tomorrow, isHoliday)) return;
 
-    const ringing = getAlarmsRingingOnDate(tomorrow);
+    const ringing = holidayDemo
+      ? alarms.filter(
+          (a) =>
+            a.enabled &&
+            Array.isArray(a.days) &&
+            a.days.includes(tomorrow.getDay())
+        )
+      : getAlarmsRingingOnDate(tomorrow);
     if (ringing.length === 0) return;
 
     const key = HOLIDAY_MODAL_KEY + tomorrowStr;
-    if (sessionStorage.getItem(key)) return;
+    if (!holidayDemo && sessionStorage.getItem(key)) return;
 
     setHolidayAlarm(ringing[0]);
     setShowHolidayModal(true);
@@ -53,14 +60,14 @@ export default function AlarmList() {
 
   const handleHolidayDisable = (alarmId, dateStr) => {
     addDisabledDate(alarmId, dateStr);
-    if (!testHoliday) sessionStorage.setItem(HOLIDAY_MODAL_KEY + dateStr, '1');
+    if (!testHoliday && !holidayDemo) sessionStorage.setItem(HOLIDAY_MODAL_KEY + dateStr, '1');
     setShowHolidayModal(false);
     setHolidayAlarm(null);
   };
 
   const handleHolidayKeep = () => {
     const tomorrowStr = holidayDemo ? getSimulatedTomorrowStr(searchParams) : getTomorrowStr();
-    if (!testHoliday) sessionStorage.setItem(HOLIDAY_MODAL_KEY + tomorrowStr, '1');
+    if (!testHoliday && !holidayDemo) sessionStorage.setItem(HOLIDAY_MODAL_KEY + tomorrowStr, '1');
     setShowHolidayModal(false);
     setHolidayAlarm(null);
   };
@@ -148,6 +155,19 @@ export default function AlarmList() {
             className="alarm-list-demo-link"
             onClick={(e) => {
               e.preventDefault();
+              if (holidayDemo) {
+                const tomorrow = getSimulatedTomorrow(searchParams);
+                const ringing = alarms.filter(
+                  (a) =>
+                    a.enabled &&
+                    Array.isArray(a.days) &&
+                    a.days.includes(tomorrow.getDay())
+                );
+                if (ringing.length > 0) {
+                  setHolidayAlarm(ringing[0]);
+                  setShowHolidayModal(true);
+                }
+              }
               navigate('/?holidayDemo=1');
             }}
           >
